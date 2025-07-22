@@ -1,0 +1,122 @@
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const ResumeApp = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <div className="p-6 max-w-5xl mx-auto space-y-6">
+      <div className="flex justify-between items-center">
+        <Button onClick={() => window.print()}>Download / Print PDF</Button>
+        <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>Toggle {theme === "dark" ? "Light" : "Dark"} Mode</Button>
+      </div>
+
+      <Card>
+        <CardContent className="space-y-2">
+          <h1 className="text-3xl font-bold">Shaik Mohammad Asif</h1>
+          <p className="text-sm">B.Tech Computer Science (AI & ML), VIT Chennai</p>
+          <p>Email: <a className="text-blue-600" href="mailto:asif06072004@gmail.com">asif06072004@gmail.com</a></p>
+          <p>Phone: +91 99 59 97 98 79</p>
+          <p>Website: <a className="text-blue-600" href="https://asifshaik.netlify.app">asifshaik.netlify.app</a></p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-semibold mb-2">Skills</h2>
+          <div className="space-y-2">
+            <p><strong>Technical:</strong> C/C++, Python, PySpark, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly</p>
+            <p><strong>Soft Skills:</strong> Teamwork, Adaptability, Accountability</p>
+            <p><strong>Languages:</strong> English, Telugu, Hindi (Intermediate)</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="space-y-4">
+          <h2 className="text-xl font-semibold">Projects</h2>
+
+          <div>
+            <h3 className="font-medium">Holistic Evaluation of Multilingual LLMs (2025)</h3>
+            <p>
+              Developed a modular framework to evaluate LLMs across accuracy, reasoning, bias, privacy, and usability. Integrated GPT-3.5, Mistral, FLAN-T5, and LLaMA. Used MMLU, PIQA, and TruthfulQA benchmarks. Deployed system on GCP using Docker and Airflow with real-time visualizations.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-medium">E-commerce Customer Segmentation & Recommendation (2024)</h3>
+            <p>
+              Built segmentation and recommendation system using K-means and collaborative filtering. Applied PCA, RFM analysis, and evaluated clusters on UK e-commerce dataset.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-medium">Federated Text Classification (2024)</h3>
+            <p>
+              Implemented BiLSTM-based text classification with Flower Federated Learning framework. Compared FL and centralized training using performance metrics.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-medium">Gesture-Controlled IoT (2024)</h3>
+            <p>
+              Created a Raspberry Pi-based IoT system with gesture recognition using OpenCV and MediaPipe to control devices via IR.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-medium">Cancer Prediction (2024)</h3>
+            <p>
+              Built a logistic regression model to predict cancer using the Breast Cancer Wisconsin dataset. Evaluated with accuracy and classification metrics.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-medium">Hyper-Personalized Media Advertising Using Generative AI (2024)</h3>
+            <p>
+              Created targeted ads using Generative AI based on user behavior, improving engagement and conversion rates in digital marketing.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-semibold mb-2">Education</h2>
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>B.Tech CSE (AI ML)</strong>, VIT Chennai (2021–2025) – Pursuing</li>
+            <li><strong>Intermediate (12th)</strong>, Sri Chaitanya Junior College (2019–2021) – 93%</li>
+            <li><strong>Secondary (10th)</strong>, Good Shepherd School – GPA: 9.8</li>
+          </ul>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-semibold mb-2">Hobbies</h2>
+          <p>Reading, Sports, Travel, Movies/Anime</p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-semibold mb-2">Contact Me</h2>
+          <form className="space-y-2">
+            <input type="text" placeholder="Name" className="w-full border p-2 rounded" />
+            <input type="email" placeholder="Email" className="w-full border p-2 rounded" />
+            <textarea placeholder="Message" className="w-full border p-2 rounded" />
+            <Button type="submit">Send</Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default ResumeApp;
